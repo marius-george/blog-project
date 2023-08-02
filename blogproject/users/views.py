@@ -2,11 +2,11 @@
 
 from flask import render_template, url_for, flash, redirect, request, Blueprint
 from flask_login import login_user, current_user, logout_user, login_required
+from blogproject import db
 from blogproject.models import User, BlogPost
 from blogproject.users.forms import RegistrationForm, LoginForm, UpdateUserForm
 from blogproject.users.image_manager import add_profile_pic
 
-from blogproject import db
 
 users = Blueprint('users', __name__)
 
@@ -86,7 +86,8 @@ def account():
 
     profile_image = url_for(
         'static', filename='profile_pics/'+current_user.profile_image)
-    return render_template('account.html', profile_image=profile_image, form=form)
+    return render_template('account.html',
+                           profile_image=profile_image, form=form)
 
 
 @users.route("/<username>")
@@ -95,7 +96,8 @@ def user_posts(username):
     user = User.query.filter_by(username=username).first_or_404()
     blog_posts = BlogPost.query.filter_by(author=user).order_by(
         BlogPost.date.desc()).paginate(page=page, per_page=5)
-    return render_template('user_posts.html', blog_posts=blog_posts, user=user)
+    return render_template('user_blog_posts.html',
+                           blog_posts=blog_posts, user=user)
 
 
 # user's list of Blog posts
