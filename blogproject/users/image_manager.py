@@ -6,15 +6,17 @@ from flask import url_for, current_app
 
 
 def add_profile_pic(pic_upload, username):
-
     filename = pic_upload.filename
-    # "mypicture.jpg"
     ext_type = filename.split('.')[-1]
-    # "username.jpg"
     storage_filename = str(username)+'.'+ext_type
 
     filepath = os.path.join(current_app.root_path,
-                            'static\profile_pics', storage_filename)
+                            'static', 'profile_images', storage_filename)
+
+    # checking if the directory exists
+    directory = os.path.dirname(filepath)
+    if not os.path.exists(directory):
+        os.makedirs(directory)
 
     output_size = (200, 200)
 

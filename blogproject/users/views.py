@@ -31,7 +31,7 @@ def register():
 
 
 # login
-@users.route('/login', methods=['GET', 'POST'])
+@users.route('/_login', methods=['GET', 'POST'])
 def login():
 
     form = LoginForm()
@@ -55,7 +55,7 @@ def login():
 
 
 # logout
-@users.route("/logout")
+@users.route("/_logout")
 def logout():
     logout_user()
     return redirect(url_for("core.index"))
