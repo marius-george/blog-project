@@ -29,10 +29,12 @@ def create_app():
 
     from blogproject.core.views import core
     from blogproject.users.views import users
+    from blogproject.blog_posts.views import blog_posts
     from blogproject.custom_error.errors import custom_error
 
     app.register_blueprint(core)
     app.register_blueprint(users)
+    app.register_blueprint(blog_posts)
     app.register_blueprint(custom_error)
 
     return app
