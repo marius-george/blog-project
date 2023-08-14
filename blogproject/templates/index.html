@@ -1,32 +1,38 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container-fluid">
-    <h1>Blog Project</h1>
-    <p>Welcome to BlogProject website</p>
-</div>
 
-<div class="container">
+    <!-- asta e de la index din template -->
 
-    {# Go through each blog post #}
-    {% for post in blog_posts.items %}
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <!-- Post preview-->
+                {# Go through each blog post #}
+                {% for post in blog_posts.items %}
+                <div class="post-preview">
+                    
+                    <a href="{{ url_for('blog_posts.view_post', blog_post_id=post.id) }}">
+                        <h2 class="post-title">{{ post.title}}</h2>
+                    </a>
+                    <p class="post-meta">
+                        Published by
+                        <a href="{{ url_for('users.user_posts', username=post.author.username) }}">{{post.author.username }}</a>
+                        on <span>{{ post.date.strftime('%d-%m-%Y') }}</span>
+                    </p>
+                    
+                </div>
+                <!-- Divider-->
+                <hr class="my-4" />
+                {% endfor %}
+                
 
-    <div class="card">
-
-        <div class="card-body">
-
-
-            <h2><a class="card-title" href="  {{ url_for('blog_posts.view_post', blog_post_id=post.id) }}">{{ post.title
-                    }}</a></h2>
-            <a href="{{ url_for('users.user_posts', username=post.author.username) }}">Written By: {{
-                post.author.username }}</a>
-            <p>Published on: {{ post.date.strftime('%d-%m-%Y') }}</p>
-            <p class="card-text">{{ post.text[:100] }}...</p>
-            <a href="{{ url_for('blog_posts.view_post', blog_post_id=post.id) }}" class="btn btn-primary">Read
-                Article</a>
+            </div>
         </div>
     </div>
 
-    {% endfor %}
+
+
+
 
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
