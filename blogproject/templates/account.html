@@ -1,36 +1,48 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container-fluid">
-    <div align='center'>
-        <h1>Welcome to the page for {{current_user.username}}</h1>
-        <img align='center' src="{{url_for('static',filename='profile_images/'+current_user.profile_image)}}">
+
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                
+                <!-- User Greeting and Profile Image -->
+                <div class="text-center mb-5">
+                    <h1>Welcome, {{current_user.username}}</h1>
+                    <img class="rounded-circle my-3" src="{{url_for('static',filename='profile_images/'+current_user.profile_image)}}" alt="{{current_user.username}}'s profile image">
+                </div>
+                
+                <!-- Update Form -->
+                <div class="my-5">
+                    <form method="POST" enctype="multipart/form-data" action="">
+                        {{form.hidden_tag()}}
+                        
+                        <!-- Username Field -->
+                        <div class="form-floating mb-3">
+                            {{form.username(class="form-control", id="username", placeholder=form.username.label.text)}}
+                            <label for="username">{{form.username.label.text}}</label>
+                        </div>
+
+                        <!-- Email Field -->
+                        <div class="form-floating mb-3">
+                            {{form.email(class="form-control", id="email", placeholder=form.email.label.text)}}
+                            <label for="email">{{form.email.label.text}}</label>
+                        </div>
+
+                        <!-- Profile Picture Upload -->
+                        <div class="form-floating mb-3">
+                            {{form.picture(class="form-control", id="picture")}}
+                            <label for="picture">{{form.picture.label.text}}</label>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button class="btn btn-primary text-uppercase" type="submit">{{form.submit.label.text or 'Update'}}</button>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
     </div>
-</div>
-
-<div class="container">
-    <form method="POST" enctype="multipart/form-data" action="">
-        {{form.hidden_tag()}}
-        <div class="form-group">
-            {{form.username.label(class='form-group')}}
-            {{form.username(class='form-control')}}
-        </div>
-
-        <div class="form-group">
-            {{form.email.label(class='form-group')}}
-            {{form.email(class='form-control')}}
-        </div>
-
-        <div class="form-group">
-            {{form.picture.label(class='form-group')}}
-            {{form.picture(class='form-control')}}
-        </div>
-
-        <div class="form-group">
-            {{form.submit(class='btn btn-primary')}}
-        </div>
-
-
-    </form>
-</div>
+</main>
 
 {% endblock %}

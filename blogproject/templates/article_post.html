@@ -1,21 +1,36 @@
 {% extends "base.html" %}
 {% block content %}
-  <div class="container-fluid">
-    <form class="form-group" method="POST">
-      {{form.hidden_tag()}}
 
-      <div class="form-group">
-        {{form.title.label(class="form-control-label")}}
-        {{form.title(class="form-control form-control-lg")}}
-      </div>
-      <div class="form-group">
-        {{form.text.label(class="form-control-label")}}
-        {{form.text(class="form-control form-control-lg")}}
-      </div>
-      <div class="form-group">
-        {{form.submit(class="btn btn-outline-info")}}
-      </div>
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <p>Please fill out the form below:</p>
+                <div class="my-5">
+                    <form id="contactForm" method="POST">
+                        {{form.hidden_tag()}}
 
-    </form>
-  </div>
+                        <!-- Title Field -->
+                        <div class="form-floating mb-3">
+                            {{form.title(class="form-control", id="title", placeholder=form.title.label.text)}}
+                            <label for="title">{{form.title.label.text}}</label>
+                            <div class="invalid-feedback">Title is required.</div>
+                        </div>
+
+                        <!-- Text Field -->
+                        <div class="form-floating mb-3">
+                            {{form.text(class="form-control", id="text", placeholder=form.text.label.text)}}
+                            <label for="text">{{form.text.label.text}}</label>
+                            <div class="invalid-feedback">Text is required.</div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button class="btn btn-primary text-uppercase" type="submit">{{form.submit.label.text or 'Submit'}}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
 {% endblock %}
