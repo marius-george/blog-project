@@ -2,44 +2,61 @@
 {% block content %}
 
 <main class="mb-4">
+    <!-- Main content area -->
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
+                <!-- Introduction paragraph -->
                 <p>If you have amazing ideas please register to post articles!</p>
                 <div class="my-5">
+                    <!-- User registration form -->
                     <form id="contactForm" method="POST">
-                        {{form.hidden_tag()}}
+                        <!-- Include hidden form fields for security -->
+                        {{ form.hidden_tag() }}
                         
                         <!-- Email Field -->
                         <div class="form-floating mb-3">
-                            {{form.email(class="form-control", id="email", placeholder=form.email.label.text)}}
-                            <label for="email">{{form.email.label.text}}</label>
+                            <!-- Render email input with appropriate attributes -->
+                            {{ form.email(class="form-control", id="email", placeholder=form.email.label.text) }}
+                            <!-- Display label for the email input -->
+                            <label for="email">{{ form.email.label.text }}</label>
+                            <!-- Feedback message for invalid input -->
                             <div class="invalid-feedback">An email is required.</div>
                         </div>
                         
                         <!-- Username Field -->
                         <div class="form-floating mb-3">
-                            {{form.username(class="form-control", id="username", placeholder=form.username.label.text)}}
-                            <label for="username">{{form.username.label.text}}</label>
+                            <!-- Render username input with appropriate attributes -->
+                            {{ form.username(class="form-control", id="username", placeholder=form.username.label.text) }}
+                            <!-- Display label for the username input -->
+                            <label for="username">{{ form.username.label.text }}</label>
+                            <!-- Feedback message for invalid input -->
                             <div class="invalid-feedback">A username is required.</div>
                         </div>
                         
                         <!-- Password Field -->
                         <div class="form-floating mb-3">
-                            {{form.password(class="form-control", id="password", placeholder=form.password.label.text)}}
-                            <label for="password">{{form.password.label.text}}</label>
+                            <!-- Render password input with appropriate attributes -->
+                            {{ form.password(class="form-control", id="password", placeholder=form.password.label.text) }}
+                            <!-- Display label for the password input -->
+                            <label for="password">{{ form.password.label.text }}</label>
+                            <!-- Feedback message for invalid input -->
                             <div class="invalid-feedback">A password is required.</div>
                         </div>
                         
                         <!-- Password Confirmation Field -->
                         <div class="form-floating mb-3">
-                            {{form.pass_confirm(class="form-control", id="pass_confirm", placeholder=form.pass_confirm.label.text)}}
-                            <label for="pass_confirm">{{form.pass_confirm.label.text}}</label>
+                            <!-- Render password confirmation input with appropriate attributes -->
+                            {{ form.pass_confirm(class="form-control", id="pass_confirm", placeholder=form.pass_confirm.label.text) }}
+                            <!-- Display label for the password confirmation input -->
+                            <label for="pass_confirm">{{ form.pass_confirm.label.text }}</label>
+                            <!-- Feedback message for invalid input -->
                             <div class="invalid-feedback">Password confirmation is required.</div>
                         </div>
                         
                         <!-- Submit Button -->
-                        <button class="btn btn-primary text-uppercase" type="submit">{{form.submit.label.text or 'Submit'}}</button>
+                        <!-- Render submit button with optional custom label -->
+                        <button class="btn btn-primary text-uppercase" type="submit">{{ form.submit.label.text or 'Submit' }}</button>
                     </form>
                 </div>
             </div>

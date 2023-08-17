@@ -2,30 +2,41 @@
 {% block content %}
 
 <main class="mb-4">
+    <!-- Main content area -->
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
+                <!-- Introduction paragraph for the form -->
                 <p>Please fill out the form below:</p>
                 <div class="my-5">
+                    <!-- Blog post creation form -->
                     <form id="contactForm" method="POST">
-                        {{form.hidden_tag()}}
+                        <!-- Include hidden form fields for security -->
+                        {{ form.hidden_tag() }}
 
                         <!-- Title Field -->
                         <div class="form-floating mb-3">
-                            {{form.title(class="form-control", id="title", placeholder=form.title.label.text)}}
-                            <label for="title">{{form.title.label.text}}</label>
+                            <!-- Render title input with appropriate attributes -->
+                            {{ form.title(class="form-control", id="title", placeholder=form.title.label.text) }}
+                            <!-- Display label for the title input -->
+                            <label for="title">{{ form.title.label.text }}</label>
+                            <!-- Feedback message for invalid input -->
                             <div class="invalid-feedback">Title is required.</div>
                         </div>
 
                         <!-- Text Field -->
                         <div class="form-floating mb-3">
-                            {{form.text(class="form-control", id="text", placeholder=form.text.label.text)}}
-                            <label for="text">{{form.text.label.text}}</label>
+                            <!-- Render text input with appropriate attributes -->
+                            {{ form.text(class="form-control", id="text", placeholder=form.text.label.text) }}
+                            <!-- Display label for the text input -->
+                            <label for="text">{{ form.text.label.text }}</label>
+                            <!-- Feedback message for invalid input -->
                             <div class="invalid-feedback">Text is required.</div>
                         </div>
 
                         <!-- Submit Button -->
-                        <button class="btn btn-primary text-uppercase" type="submit">{{form.submit.label.text or 'Submit'}}</button>
+                        <!-- Render submit button with optional custom label -->
+                        <button class="btn btn-primary text-uppercase" type="submit">{{ form.submit.label.text or 'Submit' }}</button>
                     </form>
                 </div>
             </div>

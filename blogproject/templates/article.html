@@ -2,21 +2,24 @@
 {% block content %}
 
 <main class="mb-4">
+    <!-- Main content area -->
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 
-                <!-- Blog Post Details -->
-                <h1 class="display-4 mb-3">{{post.title}}</h1>
-                <h2 class="lead mb-3">Author: {{post.author.username}}</h2>
-                <h3 class="mb-4">Date: {{post.date.strftime('%d-%B-%Y')}}</h3>
-                <p>{{post.text}}</p>
+                <!-- Display details of the blog post -->
+                <h1 class="display-4 mb-3">{{ post.title }}</h1>
+                <h2 class="lead mb-3">Author: {{ post.author.username }}</h2>
+                <h3 class="mb-4">Date: {{ post.date.strftime('%d-%B-%Y') }}</h3>
+                <p>{{ post.text }}</p>
 
+                <!-- Display edit & delete buttons if the current user is the author of the post -->
                 {% if post.author == current_user %}
-                <!-- Edit & Delete Buttons -->
                 <div class="my-3">
-                    <form action="{{url_for('blog_posts.update_post', blog_post_id=post.id)}}" method="get">
+                    <!-- Form for editing the post -->
+                    <form action="{{ url_for('blog_posts.update_post', blog_post_id=post.id) }}" method="get">
                         <button type="submit" class="btn btn-primary me-2">Edit</button>
+                        <!-- Button to trigger the delete confirmation modal -->
                         <button type="button" class="btn btn-danger" data-bs-toggle='modal' data-bs-target="#del_modal">Delete</button>
                     </form>
                 </div>
@@ -39,8 +42,11 @@
                     <p>Are you sure you want to delete the article?</p>
                 </div>
                 <div class="modal-footer">
+                    <!-- Button to dismiss the modal -->
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <form action="{{url_for('blog_posts.delete_post',blog_post_id=post.id)}}" method="post">
+                    <!-- Form for deleting the post -->
+                    <form action="{{ url_for('blog_posts.delete_post', blog_post_id=post.id) }}" method="post">
+                        <!-- Submit button to confirm deletion -->
                         <input class="btn btn-danger" type="submit" value="Delete">
                     </form>
                 </div>
