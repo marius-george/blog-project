@@ -35,12 +35,12 @@
             </button>
             <!-- Navigation items -->
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                    <!-- Conditional navigation items based on user authentication -->
-                    {% if current_user.is_authenticated %}
+                <ul class="navbar-nav ms-auto py-4 py-lg-0"> 
                     <!-- Display if user is authenticated -->
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{url_for('core.index')}}">Home</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{url_for('core.info')}}">About</a></li>
+                    <!-- Conditional navigation items based on user authentication -->
+                    {% if current_user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{url_for('users.logout')}}">Log Out</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{url_for('users.account')}}">Account</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{url_for('blog_posts.create_post')}}">Create Article</a></li>

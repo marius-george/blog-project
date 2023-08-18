@@ -1,18 +1,34 @@
-# models.py
 from blogproject import db, login_manager
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from datetime import datetime
 
-# function to login if user is authenticated
-
-
 @login_manager.user_loader
 def load_user(user_id):
+    """
+    Load a user object from the database using the user ID.
+
+    Parameters:
+        user_id (str): The ID of the user to load.
+
+    Returns:
+        User: The User object representing the loaded user.
+    """
     return User.query.get(user_id)
 
 
 class User(db.Model, UserMixin):
+    """
+    Class representing a user of the application.
+
+    Attributes:
+        id (int): The unique identifier for the user.
+        profile_image (str): The filename of the user's profile image.
+        email (str): The email address of the user.
+        username (str): The unique username of the user.
+        password_hash (str): The hashed password of the user.
+        posts (list of BlogPost): List of blog posts authored by the user.
+    """
 
     __tablename__ = 'users'
 
@@ -26,11 +42,31 @@ class User(db.Model, UserMixin):
     posts = db.relationship('BlogPost', backref='author', lazy=True)
 
     def __init__(self, email, username, password):
+        """
+        Initialize a User object.
+
+        Parameters:
+            email (str): The email address of the user.
+            username (str): The username of the user.
+            password (str): The plain-text password of the user.
+
+        Returns:
+            None
+        """
         self.email = email
         self.username = username
         self.password_hash = generate_password_hash(password)
 
     def check_password(self, password):
+        """
+        Check if the provided password matches the user's hashed password.
+
+        Parameters:
+            password (str): The plain-text password to check.
+
+        Returns:
+            bool: True if the password matches, False otherwise.
+        """
         return check_password_hash(self.password_hash, password)
 
     def __repr__(self):
@@ -38,6 +74,16 @@ class User(db.Model, UserMixin):
 
 
 class BlogPost(db.Model):
+    """
+    Class representing a blog post.
+
+    Attributes:
+        id (int): The unique identifier for the blog post.
+        user_id (int): The ID of the user who authored the blog post.
+        date (datetime): The date and time when the blog post was created.
+        title (str): The title of the blog post.
+        text (str): The content of the blog post.
+    """
 
     users = db.relationship(User)
 
@@ -49,6 +95,17 @@ class BlogPost(db.Model):
     text = db.Column(db.Text, nullable=False)
 
     def __init__(self, title, text, user_id):
+        """
+        Initialize a BlogPost object.
+
+        Parameters:
+            title (str): The title of the blog post.
+            text (str): The content of the blog post.
+            user_id (int): The ID of the user who authored the blog post.
+
+        Returns:
+            None
+        """
         self.title = title
         self.text = text
         self.user_id = user_id
