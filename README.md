@@ -2,7 +2,7 @@
 
 ## Milestone Project 3 - Backend Development
 
-<h2 align="center"><img src=""></h2>
+<h2 align="center"><img src="blogproject/static/readme/images/blogproject-mockup.png"></h2>
 
 * ConspireHub is a website where enthusiasts of conspiracy theories can create, read, edit, or delete articles about conspiracy theories.
 
@@ -48,24 +48,28 @@
 
 * As a business owner, I want the adding, editing and deleting of articles to be limited to admin or those with permission. 
 
-* As a business owner, I want it to be as easy as possible for users to submit recipes, e.g. they can copy and paste an ingredients list in.
+* As a business owner, I want it to be as easy as possible for users to submit articles, e.g. they can type the title and the paragraphs.
 
 * As a business owner, I want the website to function and look good on any device.
 
 ## Design
+
+- Distraction free blog text optimized for legibility with a menu bar interface that conveniently appears when you scroll up!
+- Footer with social links and copyright information.
+- Modern design with a subtle splash of color. Splash color used is a medium dark shade of cyan #0085A1
 
 ### Overview
 
 - ConspireHub is a website dedicated to conspiracy theories. The name ConspireHub comes from a hub of conspiracies. The website features a simple and intuitive layout. Users can view articles without registering an account or can create, edit, and delete articles if they have registered with a new account.
 
 ### Colour
-<h2 align="center"><img src="gather/static/readme/images/gather-colour-palette.jpg"></h2>
+<h2 align="center"><img src=""></h2>
 
-- Gather uses a simple colour scheme of white, light grey and dark grey with pops of turquoise and red. The background is light grey, with a top and bottom border in turquoise, distinguishing the top nav bar and the bottom footer sections. I have used cards with a white background for areas of dense text for improved legibility. The logo, social icons and anchor links are in the website’s distinctive ‘gather red’ colour. Buttons are either in dark grey or gather-red.
+- 
 
 ### Typography
 
-- Text is in Lora font with Open Sans as a fallback font. Lora is a well-balanced contemporary serif with roots in calligraphy. It is a text typeface with moderate contrast well suited for body text. A paragraph set in Lora will make a memorable appearance because of its brushed curves in contrast with driving serifs.
+- 
 
 ### Imagery 
 
@@ -75,13 +79,9 @@
 
 - I have used icons on social media footer to enhance the link used for each social media website. 
 
-### Cards
-
-- I have used Materialize CSS card componants for displaying recipes and forms. This makes the content stand out from the website background. It also neatly presents the various recipes, brining a sense of harmony and consistency to the website.
-
 # Wireframes
 
-- [View my wireframes in PDF form here]().
+- [View my wireframes in PDF form here](blogproject/static/readme/wireframes/conspirehub-wireframes.pdf).
 
 # Features
 
@@ -89,7 +89,7 @@
 
 ### Nav Bar
 
-<h2 align="center"><img src=""></h2>
+<h2 align="center"><img src="blogproject/static/readme/images/conspirehub-navbar.png"></h2>
 >
 
 - The nav bar presents different options whether the user is logged in or logged out or an administrator.
@@ -104,7 +104,7 @@
 
 ### Footer 
 
-<h2 align="center"><img src=""></h2>
+<h2 align="center"><img src="blogproject/static/readme/images/conspirehub-footer.png"></h2>
 
 - The footer includes the website’s name. 
 
@@ -138,9 +138,6 @@
 
 - Here the user can write the title and the text of the article. and use post button to post it.
 
-# Data Model
-
-- [View my Database structure in PDF form here]().
 
 # Technologies Used
 
@@ -215,7 +212,7 @@
 
 # Testing
 
-- Please refer [here](TESTING.md) for more information on testing of the Gather website
+- Please refer [here](TESTING.md) for more information on testing of the ConspireHub website
 
 # Deployment
 
@@ -259,7 +256,7 @@ $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 
 ```
 $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
-> Cloning into `gather-recipe-website`...
+> Cloning into `blogproject`...
 > remote: Counting objects: 10, done.
 > remote: Compressing objects: 100% (8/8), done.
 > remove: Total 10 (delta 1), reused 10 (delta 1)
@@ -289,4 +286,4 @@ You will need to deploy the application using Heroku.
 10. Deploy your project by going to the Deploy tab and choose 'Connect to Github'
 11. Find your repository name and select Connect.
 12. To connect your Heroku database, go to 'More' in the top right and select run console. Enter ```python3``` to access the python intepreter.
-13. Then type ```From gather import db```. Then type ```db.create_all()```. You can then exit the console.
+13. Then type ```From blogproject import db```. Then type ```db.create_all()```. You can then exit the console.
