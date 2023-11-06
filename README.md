@@ -212,7 +212,7 @@
 
 # Testing
 
-- Please refer [here](TESTING.md) for more information on testing of the ConspireHub website
+- Please refer [here](blogproject/static/readme/testing/testing.md) for more information on testing of the ConspireHub website
 
 # Deployment
 
