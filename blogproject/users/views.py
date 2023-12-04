@@ -12,7 +12,7 @@ users = Blueprint('users', __name__)
 
 # register
 
-
+@users.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
         return redirect(url_for('core.index'))  # Redirect if user is already logged in
