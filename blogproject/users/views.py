@@ -13,15 +13,26 @@ users = Blueprint('users', __name__)
 # register
 
 
-@users.route('/register', methods=['GET', 'POST'])
 def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('core.index'))  # Redirect if user is already logged in
+
     form = RegistrationForm()
-
     if form.validate_on_submit():
-        user = User(email=form.email.data,
-                    username=form.username.data,
-                    password=form.password.data)
+        # Check if the email or username already exists
+        email_exists = User.query.filter_by(email=form.email.data).first()
+        username_exists = User.query.filter_by(username=form.username.data).first()
 
+        if email_exists:
+            flash('Email already registered. Please choose a different email.', 'danger')
+            return redirect(url_for('users.register'))
+
+        if username_exists:
+            flash('Username already taken. Please choose a different username.', 'danger')
+            return redirect(url_for('users.register'))
+
+        # Proceed with registration since email and username are unique
+        user = User(email=form.email.data, username=form.username.data, password=form.password.data)
         db.session.add(user)
         db.session.commit()
         flash('Thanks for registration!')
