@@ -63,13 +63,14 @@
 - ConspireHub is a website dedicated to conspiracy theories. The name ConspireHub comes from a hub of conspiracies. The website features a simple and intuitive layout. Users can view articles without registering an account or can create, edit, and delete articles if they have registered with a new account.
 
 ### Colour
-<h2 align="center"><img src=""></h2>
 
-- 
+<h2 align="center"><img src="/workspaces/blog-project/blogproject/static/readme/images/colourPalette.png"></h2>
+
+- These colors create a balanced and harmonious color palette that is both aesthetically pleasing and functionally effective. The teal provides a vibrant pop of color, drawing attention to key elements when hovered, while black, white, and grey create a neutral and professional backdrop that enhances readability and user experience.
 
 ### Typography
 
-- 
+- Fonts used are Lora and Open Sans. These fonts used together indicates a balance between formality and approachability. Lora, with its serif elegance, provides a professional look while Open Sans offers a clean and modern feel for body text, ensuring excellent user experience and readability.
 
 ### Imagery 
 
