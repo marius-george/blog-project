@@ -64,7 +64,7 @@
 
 ### Colour
 
-<h2 align="center"><img src="workspaces/blog-project/blogproject/static/readme/images/colourPalette.png"></h2>
+<h2 align="center"><img src="blogproject/static/readme/images/colour-palette.png"></h2>
 
 - These colors create a balanced and harmonious color palette that is both aesthetically pleasing and functionally effective. The teal provides a vibrant pop of color, drawing attention to key elements when hovered, while black, white, and grey create a neutral and professional backdrop that enhances readability and user experience.
 
